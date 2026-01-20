@@ -36,6 +36,12 @@ from stpyvista import stpyvista
 import pyvista as pv
 import glob
 from pathlib import Path
+import pyvista as pv
+import os
+
+# Esto debe ir antes de cualquier renderizado
+pv.OFF_SCREEN = True
+pv.start_xvfb()
 # Opcional: descomentar si tienes cqterrain instalado
 # from cqterrain.crystal import CrystalWall
 
