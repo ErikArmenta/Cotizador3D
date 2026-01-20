@@ -1,4 +1,5 @@
 streamlit==1.42.0
+ipython
 vtk==9.3.0
 pyvista==0.43.0
 stpyvista==0.1.1
@@ -11,4 +12,5 @@ fpdf
 pillow
 python-dateutil
 pytz
+
 
