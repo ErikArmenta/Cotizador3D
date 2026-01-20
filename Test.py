@@ -38,10 +38,13 @@ import glob
 from pathlib import Path
 import pyvista as pv
 
-# Configuración crucial para entornos de nube (Streamlit Cloud)
+# 1. Iniciar la pantalla virtual (Crucial para Streamlit Cloud)
+if 'XVFB_STARTED' not in st.session_state:
+    pv.start_xvfb()
+    st.session_state['XVFB_STARTED'] = True
+
+# 2. Configurar PyVista para que no busque una GPU real
 pv.OFF_SCREEN = True
-pv.USE_IPYTHON = False  # Evita que busque IPython
-pv.global_theme.jupyter_backend = 'static' # O 'none' si solo usas stpyvista
 
 # Configurar pyvista
 pv.set_jupyter_backend('static')
@@ -773,6 +776,7 @@ if __name__ == "__main__":
     __make_sidebar()
     __make_app()
     __clean_up_static_files()  # Limpiar archivos antiguos
+
 
 
 
