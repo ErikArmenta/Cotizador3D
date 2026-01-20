@@ -1,0 +1,19 @@
+# Core
+streamlit==1.42.0
+
+# 3D Visualization (versiones compatibles con Cloud)
+cadquery==2.4.1
+trimesh==4.2.0
+pyvista==0.43.0
+stpyvista==0.1.1
+
+# Scientific
+numpy==1.23.5
+scipy==1.10.1
+pandas==2.0.3
+
+# Utilities
+fpdf==1.7.2
+pillow==10.0.1
+python-dateutil==2.8.2
+pytz==2023.3
