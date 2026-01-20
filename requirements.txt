@@ -1,9 +1,9 @@
 streamlit==1.42.0
-cadquery==2.4.1
+cadquery>=2.4.0
 trimesh==4.2.0
 pyvista==0.43.0
 stpyvista==0.1.1
-numpy<2.0.0  # CadQuery suele fallar con Numpy 2.0
+numpy<2.0.0
 scipy
 pandas
 fpdf
