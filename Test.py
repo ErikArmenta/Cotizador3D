@@ -39,11 +39,8 @@ from pathlib import Path
 import pyvista as pv
 import os
 
-# Esto debe ir antes de cualquier renderizado
-pv.OFF_SCREEN = True
-pv.start_xvfb()
-# Opcional: descomentar si tienes cqterrain instalado
-# from cqterrain.crystal import CrystalWall
+os.system("Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &")
+os.environ["DISPLAY"] = ":99"
 
 # Configurar pyvista
 pv.set_jupyter_backend('static')
@@ -775,3 +772,4 @@ if __name__ == "__main__":
     __make_sidebar()
     __make_app()
     __clean_up_static_files()  # Limpiar archivos antiguos
+
