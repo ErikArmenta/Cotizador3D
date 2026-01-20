@@ -38,9 +38,12 @@ import glob
 from pathlib import Path
 import pyvista as pv
 import os
+import subprocess
 
-os.system("Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &")
-os.environ["DISPLAY"] = ":99"
+# Crear una pantalla virtual
+if "DISPLAY" not in os.environ:
+    subprocess.Popen(["Xvfb", ":99", "-screen", "0", "1024x768x24"])
+    os.environ["DISPLAY"] = ":99"
 
 # Configurar pyvista
 pv.set_jupyter_backend('static')
@@ -772,4 +775,5 @@ if __name__ == "__main__":
     __make_sidebar()
     __make_app()
     __clean_up_static_files()  # Limpiar archivos antiguos
+
 
