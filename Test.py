@@ -37,13 +37,11 @@ import pyvista as pv
 import glob
 from pathlib import Path
 import pyvista as pv
-import os
-import subprocess
 
-# Crear una pantalla virtual
-if "DISPLAY" not in os.environ:
-    subprocess.Popen(["Xvfb", ":99", "-screen", "0", "1024x768x24"])
-    os.environ["DISPLAY"] = ":99"
+# Configuración crucial para entornos de nube (Streamlit Cloud)
+pv.OFF_SCREEN = True
+pv.USE_IPYTHON = False  # Evita que busque IPython
+pv.global_theme.jupyter_backend = 'static' # O 'none' si solo usas stpyvista
 
 # Configurar pyvista
 pv.set_jupyter_backend('static')
@@ -775,5 +773,6 @@ if __name__ == "__main__":
     __make_sidebar()
     __make_app()
     __clean_up_static_files()  # Limpiar archivos antiguos
+
 
 
